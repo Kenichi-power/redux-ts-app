@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Navigation from "./components/navigation/Navigation";
+import AsyncThunkPage from "./pages/AsyncThunkPage";
+import StateChangePage from "./pages/StateChangePage";
+import TodoAppPage from "./pages/TodoAppPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navigation />
+      <div>
+        <Routes>
+          <Route path="/" element={<StateChangePage />} />
+          <Route path="/todoAppPage" element={<TodoAppPage />} />
+          <Route path="/asyncThunkPage" element={<AsyncThunkPage />} />
+        </Routes>
+      </div>
     </div>
   );
 }
